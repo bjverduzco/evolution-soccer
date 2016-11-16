@@ -15,6 +15,7 @@ angular.module('evoApp').controller('LoginController', ['$http', '$location', fu
 
   function handleSuccess(response){
     console.log('Successfully Logged in');
+    $location.path('/admin');
   }
 
   function handleFailure(response){
