@@ -25,6 +25,7 @@ angular.module('evoApp').controller('LoginController', ['$http', '$location', fu
   vm.register = function(){
     $http.get('/register').then(function(response){
       console.log('Success loading registration page', response);
+      $location.path('/register');
     }, function(err){
       console.log('Error loading registration page', err);
     });

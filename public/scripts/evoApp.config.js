@@ -5,6 +5,11 @@ angular.module('evoApp').config(['$routeProvider', '$locationProvider', function
     controller: 'LoginController',
     controllerAs: 'login'
   })
+  .when('/register', {
+    templateUrl: 'views/register.html',
+    controller: 'RegisterController',
+    controllerAs: 'register'
+  })
   .when('/admin', {
     templateUrl: 'views/admin.html',
     requireAuth: true

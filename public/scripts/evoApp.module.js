@@ -1,1 +1,1 @@
-angular.module('evoApp', ['NgRoute']);
+angular.module('evoApp', ['ngRoute']);
