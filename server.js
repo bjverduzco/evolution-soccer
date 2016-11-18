@@ -53,6 +53,7 @@ passport.use('local', new localStrategy({
     }
 
     if(isMatch){
+      //successful authorization of user
       return done(null, user);
     }
     else{
@@ -66,7 +67,14 @@ passport.serializeUser(function(user, done){
 });
 
 passport.deserializeUser(function(request, response, next){
-  response.sendFile(path.join(__dirname, '../public/views/index.html'));
+  User.findById(id, function(err, user){
+    if(err){
+      return done(err);
+    }
+    else{
+      done(null, user);
+    }
+  });
 });
 
 var server = app.listen(process.env.PORT || 3000, function(){

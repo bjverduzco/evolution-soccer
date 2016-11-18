@@ -1,4 +1,4 @@
-angular.module('evoApp').controller('LoginController', ['$http', '$location', function($http, $location){
+angular.module('evoApp').controller('LoginController', ['$http', '$location', 'UserService', function($http, $location, UserService){
   var vm = this;
 
   vm.username = '';
@@ -19,7 +19,7 @@ angular.module('evoApp').controller('LoginController', ['$http', '$location', fu
   }
 
   function handleFailure(response){
-    console.log('Failure Logging in', resposne);
+    console.log('Failure Logging in', response);
   }
 
   vm.register = function(){
