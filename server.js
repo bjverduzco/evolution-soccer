@@ -10,6 +10,8 @@ var index = require('./routes/index');
 var User = require('./models/user');
 var login = require('./routes/login');
 var register = require('./routes/register');
+var schedule = require('./routes/schedule');
+var standings = require('./routes/standings');
 
 var app = express();
 
@@ -31,16 +33,18 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/login', login);
 app.use('/register', register);
+app.use('/standings', standings);
+app.use('/schedule', schedule);
 
 //what does this do?
-// app.use('/api', function(request, response, next){
-//   if(request.isAuthenticated()){
-//     next();
-//   }
-//   else {
-//     response.sendStatus(403);
-//   }
-// });
+app.use('/api', function(request, response, next){
+  if(request.isAuthenticated()){
+    next();
+  }
+  else {
+    response.sendStatus(403);
+  }
+});
 
 //passport
 passport.use('local', new localStrategy({

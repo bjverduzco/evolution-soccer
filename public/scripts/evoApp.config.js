@@ -1,6 +1,11 @@
 angular.module('evoApp').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
   $routeProvider
   .when('/', {
+    templateUrl: 'views/schedule.html',
+    controller: 'ScheduleController',
+    controllerAs: 'schedule'
+  })
+  .when('/login', {
     templateUrl: 'views/login.html',
     controller: 'LoginController',
     controllerAs: 'login'
