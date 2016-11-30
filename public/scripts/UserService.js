@@ -19,6 +19,6 @@ angular.module('evoApp').factory('UserService', ['$http', function($http, UserSe
 
   return {
     login: login,
-    userData: userData
+    userData: vm.userData
   };
 }]);
