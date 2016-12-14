@@ -17,7 +17,16 @@ angular.module('evoApp').config(['$routeProvider', '$locationProvider', function
   })
   .when('/admin', {
     templateUrl: 'views/admin.html',
-    requireAuth: true
+    resolve: {
+      auth: function(UserService){
+        if(UserService.userData.isAuthenticated == true){
+          break;
+        }
+        else{
+          redirectTo: '/';
+        }
+      }
+    }
   });
 
   $locationProvider.html5Mode(true);
