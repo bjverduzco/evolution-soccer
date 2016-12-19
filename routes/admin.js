@@ -10,3 +10,5 @@ router.get('/adminStandings', function(request, response){
   console.log('routing to admin standings');
   response.sendFile(path.join(__dirname, '../public/views/AdminStandings.html'));
 });
+
+module.exports = router;

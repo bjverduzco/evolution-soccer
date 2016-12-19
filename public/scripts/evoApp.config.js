@@ -18,12 +18,28 @@ angular.module('evoApp').config(['$routeProvider', '$locationProvider', function
   .when('/admin', {
     templateUrl: 'views/admin.html',
     resolve: {
-      auth: function(UserService){
+      auth: function(UserService, $location){
         if(UserService.userData.isAuthenticated == true){
-          break;
+          console.log('User is authenticated. Continue on.');
         }
         else{
           redirectTo: '/';
+          alert('You don\'t have access.');
+        }
+      }
+    }
+  })
+  .when('/adminStandings', {
+    templateUrl: 'views/adminStandings',
+    controller: 'AdminController',
+    controllerAs: 'admin',
+    resolve: {
+      auth: function(UserService, $lcoation){
+        if(UserService.userData.isAuthenticated == true){
+          console.log('User is authenticated. Move along.');
+        }
+        else {
+          redirectTo: ''
         }
       }
     }
